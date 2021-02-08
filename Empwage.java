@@ -1,32 +1,32 @@
 public class EmpWage{
 	public static void main(String args[]) {
-		int Parttime=1;
-		int Fulltime=2;
+		int Parttime=4;
+		int Fulltime=8;
+		final int isParttime=1;
+		final int isFulltime=2;
 		int Rateperhr=20;
-		int DaysInMonth=20;
+		int Hr=0;
 		int totalEmpWage=0;
-		for(int days=0;days<DaysInMonth;days++)
+		int totalworkingday=0;
+		while(Hr < 100 && totalworkingday < 20)
 		{
-		double empCheck = Math.floor(Math.random() * 10) % 3;
-		if(Fulltime==empCheck)
-		{
-			 int Hr=8;
-			 int Salary=Rateperhr*Hr;
-			 totalEmpWage += Salary;
-			 System.out.println("Salary="+Salary);
+			double empCheck = Math.floor(Math.random() * 10) % 3;
+			int check=(int)empCheck;
+			switch(check)
+			{
+			case isParttime:
+				totalEmpWage+=Rateperhr*Parttime;
+				Hr+=Parttime;
+				totalworkingday+=1;
+				break;
+			case isFulltime:
+				totalEmpWage+=Rateperhr*Fulltime;
+				Hr+=Fulltime;
+				totalworkingday+=1;
+			default:
 		}
-		else if(Parttime==empCheck)
-		{
-			 int Hr=4;
-			 int Salary=Rateperhr*Hr;
-			 totalEmpWage += Salary;
-			 System.out.println("Salary="+Salary);
-		}
-		else
-		{
-			System.out.println("Salary=0");
-		}
-	  }
-		System.out.println("Total Employee Wage"+totalEmpWage);
+	}
+		System.out.println("Hours="+Hr+"Workingdays="+totalworkingday);
+		System.out.println("Salary="+totalEmpWage);
 	}
 }
