@@ -24,8 +24,8 @@ public class EmpWage{
 				Hr+=Fulltime;
 				totalworkingday+=1;
 			default:
+			}
 		}
-	}
 		System.out.println("Hours="+Hr+"Workingdays="+totalworkingday);
 		System.out.println("Salary="+totalEmpWage);
 	}
