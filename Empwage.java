@@ -1,28 +1,26 @@
 import java.util.Scanner;
 public class EmpWage 
-{
+   {
 	final static int Is_Present=1;
 	final static int Rate_Per_Hr=20;
 	public void EmployeeWageUC1()
+	{	
+	double empCheck = Math.floor(Math.random() * 10) % 2;
+	int Hr=8;
+	int Salary=Rate_Per_Hr*Hr;
+	if(Is_Present==empCheck)
 	{
-		
-		double empCheck = Math.floor(Math.random() * 10) % 2;
-		int Hr=8;
-		int Salary=Rate_Per_Hr*Hr;
-		if(Is_Present==empCheck)
-		{
-		  System.out.println("Employee is Present");
-		  System.out.println("Salary="+Salary);
-		}
-		else
-		{
-		  System.out.println("Employee is Abscent");
-		  System.out.println("Salary=0");
-		  
-		}
+	System.out.println("Employee is Present");
+	System.out.println("Salary="+Salary);
 	}
-	public static void main(String[] args) 
+	else
 	{
+	System.out.println("Employee is Abscent");
+	System.out.println("Salary=0");	  
+	}
+}
+public static void main(String[] args) 
+{
       System.out.println("Welcometo Employee Wage Computation Program");
       System.out.print("Enter the choice=");
       Scanner sc=new Scanner(System.in);
@@ -30,29 +28,25 @@ public class EmpWage
       switch(ch) 
       {
       case 1: 	System.out.println("To calculate the Employee Wage");
-    			EmpWage obj=new EmpWage();
-    			obj.EmployeeWageUC1();
-    	  		break;
-    	  		  
+    		EmpWage obj=new EmpWage();
+    		obj.EmployeeWageUC1();
+    	  	break;		  
       case 2:  	System.out.println("To calculate The part-full time Employee Wage"); 
-      			EmployeePartTime obj2=new EmployeePartTime();
-      			obj2.EmployeeUC3();
-                break;
-                   
+      		EmployeePartTime obj2=new EmployeePartTime();
+      		obj2.EmployeeUC3();
+                break;   
       case 3: 	System.out.println("To calculate Monthly employee wage");
-      			CalculateMonthWage obj3=new CalculateMonthWage();
-      			obj3.EmployeeUC5();
-      			break;
- 
+      		CalculateMonthWage obj3=new CalculateMonthWage();
+      		obj3.EmployeeUC5();
+      		break;
       case 4: 	System.out.println("To calulate employee wage hours ");
-      			EmployeeWageHrs obj4=new EmployeeWageHrs();
-      			obj4.employeeWageUC6();
-      			break;
-
+      		EmployeeWageHrs obj4=new EmployeeWageHrs();
+      		obj4.employeeWageUC6();
+      		break;
       default: 	System.out.println("Wrong Selection");
-      			break;
+      		break;
       }  
-	}
+}
 }
 class EmployeePartTime
 {
@@ -65,15 +59,15 @@ class EmployeePartTime
 		double empCheck = Math.floor(Math.random() * 10) % 3;
 		if(Full_Time==empCheck)
 		{
-			 Hr=8;
+		 Hr=8;
 		}
 		else if(Part_Time==empCheck)
 		{
-			 Hr=4;
+		 Hr=4;
 		}
 		else
 		{
-			System.out.println("Salary=0");
+		System.out.println("Salary=0");
 		}
 		 int Salary=Rate_Per_Hr*Hr;
 		 System.out.println("Salary="+Salary);
@@ -94,20 +88,20 @@ class CalculateMonthWage
 		double empCheck = Math.floor(Math.random() * 10) % 3;
 		if(Full_Time==empCheck)
 		{
-			 Hr=8;
+		 Hr=8;
 		}
 		else if(Part_Time==empCheck)
 		{
-			 Hr=4;
+		 Hr=4;
 		}
 		else
 		{
-			System.out.println("Salary=0");
+		System.out.println("Salary=0");
 		}
 		 int Salary=Rate_Per_Hr*Hr;
 		 totalEmpWage += Salary;
 		 System.out.println("Salary="+Salary);
-	  }
+	  	}
 		System.out.println("Total Employee Wage"+totalEmpWage);
 	}
 }
