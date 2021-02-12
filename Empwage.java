@@ -26,7 +26,7 @@ public class EmpWage{
 	System.out.println ("Total Emp Wage: "+totalEmpwage);
 	return totalEmpwage;
 }
-		public static void main(String args[]) {
-			computeEmpwage();
-		}
+	public static void main(String args[]) {
+		computeEmpwage();
+	}
 }
