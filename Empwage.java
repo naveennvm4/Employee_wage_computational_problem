@@ -1,31 +1,26 @@
-public class EmpWage {
+import java.util.*;
+
+public class EmpWage  {
 	final static int IS_FULL_TIME = 1, IS_PART_TIME = 2;
 	private int numofCompany = 0;
-	private Main[] cmpEmpWageArray;
+	private LinkedList<Main> cmpEmpWageArray;
 
-	public  EmpWage() {
+	public EmpWage() {
 
-		cmpEmpWageArray = new Main[5];
+		cmpEmpWageArray = new LinkedList<>();
 	}
 
 	private void addCompanyEmpWage(int emp_hrs, int work_hrs, int hrs_month, String company) {
-		cmpEmpWageArray[numofCompany] = new Main(emp_hrs, work_hrs, hrs_month, company);
-		numofCompany++;
+		Main companyEmpWage = new Main(emp_hrs, work_hrs, hrs_month, company);
+		cmpEmpWageArray.add(companyEmpWage);
 	}
 
 	private void calcEmpWageFor() {
-		for (int i = 0; i < numofCompany; i++) {
-			cmpEmpWageArray[i].setTotalEmpWage(this.calcEmpWageFor(cmpEmpWageArray[i]));
-			System.out.println(cmpEmpWageArray[i]);
+		for (int i = 0; i < cmpEmpWageArray.size(); i++) {
+			Main companyEmpWage = cmpEmpWageArray.get(i);
+			companyEmpWage.setTotalEmpWage(this.calcEmpWageFor(companyEmpWage));
+			System.out.println(companyEmpWage);
 		}
-	}
-	public interface IComputeEmpWage {
-		public void addCompanyEmpWage(int EMP_RATE_PER_HR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH,
-				String COMPANY_NAME);
-
-		public void calcEmpWageFor();
-		public int getTotalWage(String company);
-
 	}
 
 	private int calcEmpWageFor(Main m) {
@@ -44,7 +39,7 @@ public class EmpWage {
 				empWage = 0;
 			}
 			totalEmpHrs += empHrs;
-			System.out.println("DAY#: " + totalWorkingDays + "EmpHr:" + empHrs);
+			System.out.println("\nDAY#: " + totalWorkingDays + "EmpHr:" + empHrs);
 		}
 		return totalEmpHrs = totalEmpHrs * m.EMP_RATE_PER_HR;
 	}
@@ -75,7 +70,10 @@ public class EmpWage {
 
 	public static void main(String[] args) {
 		EmpWage obj1 = new EmpWage();
+		EmpWage obj2 = new EmpWage();
 		obj1.addCompanyEmpWage(10, 20, 30, "Dmart");
+		obj2.addCompanyEmpWage(20, 30,40, "BigBasket");
 		obj1.calcEmpWageFor();
+		obj2.calcEmpWageFor();
 	}
 }
